@@ -9,35 +9,35 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/journal")
+@RequestMapping("/_journal")
 public class JournalEntryController {
 
-    private Map<Long, JournalEntry> journalEntries = new HashMap<>();
+    private Map<String, JournalEntry> journalEntries = new HashMap<>();
 
     @GetMapping
-    public List<JournalEntry> getAll(){
+    public List<JournalEntry> getAll() {
         return new ArrayList<>(journalEntries.values());
     }
 
     @PostMapping
-    public boolean createEntry(@RequestBody JournalEntry myEntry){
-        journalEntries.put(myEntry.getId(), myEntry);
+    public boolean createEntry(@RequestBody JournalEntry myEntry) {
+//        journalEntries.put(myEntry.getId(), myEntry);
         return true;
     }
 
     @GetMapping("/{myId}")
-    public JournalEntry getJournalEntryById(@PathVariable Long myId){
+    public JournalEntry getJournalEntryById(@PathVariable Long myId) {
         return journalEntries.get(myId);
     }
 
     @DeleteMapping("/{myId}")
-    public JournalEntry deleteJournalEntryById(@PathVariable Long myId){
+    public JournalEntry deleteJournalEntryById(@PathVariable Long myId) {
         return journalEntries.remove(myId);
     }
 
     @PutMapping("/{myId}")
-    public JournalEntry updateJournalEntryById(@PathVariable Long myId, @RequestBody JournalEntry myEntry){
-        return journalEntries.put(myId,myEntry);
+    public JournalEntry updateJournalEntryById(@PathVariable String myId, @RequestBody JournalEntry myEntry) {
+        return journalEntries.put(myId, myEntry);
     }
 
 }
