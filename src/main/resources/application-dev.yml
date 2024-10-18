@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      name: Journal App
+      uri: mongodb+srv://harshbsavadia:e1yavU1n0Kd7Nygz@cluster0.aqnop.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: journaldb
+      auto-index-creation: true
+  main:
+    allow-circular-references: true
+
+server:
+  port: 8080
+  servlet:
+    context-path: /journal
+
+#  .\mvnw clean package -D spring.profiles.active=dev
+# java -jar abc.jar --spring.profiles.active=dev
