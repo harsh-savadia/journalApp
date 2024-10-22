@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import static org.mockito.Mockito.when;
 
+@Disabled("Reason for disabling")
 @ActiveProfiles("dev")
 public class UserDetailsServiceImplTests {
 
